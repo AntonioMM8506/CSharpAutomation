@@ -1,0 +1,50 @@
+*.feature.cs
+
+# Binaries and Executables
+bin/
+obj/
+
+# Dependency Directories
+packages/
+node_modules/
+
+# IDE and Editor Specific Files
+.vs/
+.idea/
+*.suo
+*.user
+*.sln.DotSettings
+
+# Temporary Files
+*.tmp
+*.bak
+*.log
+
+# Configuration Files with Secrets
+appsettings.json
+web.config
+app.config
+.env
+.env.local
+
+# Generated Files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.lock
+*.pid
+
+# Personal or Sensitive Data
+*.pfx
+*.cer
+*.key
+*.db
+*.sqlite
+*.mdf
+
+# Logs and Build Output
+*.log
+*.txt
+*.html
+*.xml
