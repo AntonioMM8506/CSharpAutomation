@@ -1,7 +1,5 @@
 # CSharpAutomation
 
-
-
 dotnet test
 
 Run specific test using a @Tag
