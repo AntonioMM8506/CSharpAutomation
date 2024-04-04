@@ -10,12 +10,12 @@ Feature: Google Search
         And I click the search button
         #Then I should see results for 42,400,000
     
-    #Scenario Outline: Perform multiple Google searches
-     #   Given I am on the Google search page
-      #  When I enter <toLookFor> into the search box
-       # And I click the search button
-    #Examples:
-    #| toLookFor  |
-    #| Spawn      |
-    #| Batman     |
-    #| Spiderman  |
+    Scenario Outline: Perform multiple Google searches
+        Given I am on the Google search page
+        When I enter <toLookFor> into the search box
+        And I click the search button
+    Examples:
+    | toLookFor  |
+    | Spawn      |
+    | Batman     |
+    | Spiderman  |
