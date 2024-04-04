@@ -1,12 +1,12 @@
-*.feature.cs
-
 # Binaries and Executables
 bin/
 obj/
 
+
 # Dependency Directories
 packages/
 node_modules/
+
 
 # IDE and Editor Specific Files
 .vs/
@@ -15,10 +15,12 @@ node_modules/
 *.user
 *.sln.DotSettings
 
+
 # Temporary Files
 *.tmp
 *.bak
 *.log
+
 
 # Configuration Files with Secrets
 appsettings.json
@@ -27,6 +29,7 @@ app.config
 .env
 .env.local
 
+
 # Generated Files
 *.dll
 *.exe
@@ -34,6 +37,9 @@ app.config
 *.cache
 *.lock
 *.pid
+# All the file generated when running a .feature file
+*.feature.cs 
+
 
 # Personal or Sensitive Data
 *.pfx
@@ -42,6 +48,7 @@ app.config
 *.db
 *.sqlite
 *.mdf
+
 
 # Logs and Build Output
 *.log
