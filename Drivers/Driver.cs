@@ -16,8 +16,7 @@ namespace CSharpAutomation.Drivers
     {
         private static IWebDriver _driver;
         private static ChromeOptions options = new ChromeOptions();
-
-
+        
 
         [BeforeScenario]
         public static IWebDriver Intitialize(){

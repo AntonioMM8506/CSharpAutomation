@@ -24,15 +24,13 @@ namespace CSharpAutomation.Steps
         public void BeforeYouTubeScenario(){
             ExcelHook ironxl = new ExcelHook();
             ironData = ironxl.ReadIronXL("CREDENTIALS.xlsx");
-
-        }
-
+        }//End of BeforeScenario
 
 
         [Given("User navigate to YouTube")]
         public void NavigateToYouTube(){
             Driver.NavigateTo("https://youtube.com");
-        }
+        }//End of Given
 
 
         [When("User logs into YouTube")]
@@ -55,7 +53,7 @@ namespace CSharpAutomation.Steps
 
             Driver.ExplicitWait(By.Id("headingText"));
             Assert.AreEqual("No puedes acceder", Driver.FindElement(By.Id("headingText")).FindElement(By.TagName("span")).Text, $"Expected Text does not match equal");
-        }
+        }//End of When
 
 
     }//End of class
