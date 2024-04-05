@@ -25,10 +25,10 @@ jobs:
       run: dotnet build --configuration Release
 
     - name: See files
-      run: |
-        ls -a
-        cd bin
-        cd Debug
+      run: ls -a
+
+    - name: Debug folder
+      run: ls /bin
 
     - name: Create mock files
       run: echo "mock data" > bin/debug/netcoreapp8/CREDENTIALS.xlsx
