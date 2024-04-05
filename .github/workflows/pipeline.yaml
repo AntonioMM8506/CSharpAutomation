@@ -25,7 +25,7 @@ jobs:
       run: dotnet build --configuration Release
 
     - name: Create test files
-      run: touch bin/Debug/netcoreapp8/CREDENTIALS.xlsx
+      run: touch  /home/runner/work/CSharpAutomation/CSharpAutomation/bin/Debug/netcoreapp8/CREDENTIALS.xlsx
 
     - name: Run Test API
       run: dotnet test --configuration Release --filter Category=API
