@@ -3,6 +3,7 @@ using IronXL;
 using System.Linq;
 using System;
 using System.Data;
+using System.IO;
 using System.Collections.Generic;
 using DocumentFormat.OpenXml.Spreadsheet;
 
@@ -21,12 +22,22 @@ namespace CSharpAutomation.Hooks
                 WorkSheet ws = wb.WorkSheets.First();
                 dt = ws.ToDataTable(true);
                 
-            }catch(IndexOutOfRangeException ex){
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex);
                 dt = new DataTable();
                 dt.Columns.Add("Mock Data", typeof(string));
                 dt.Rows.Add("Mock");
                 dt.Rows.Add("Data");
+
+            }catch(IndexOutOfRangeException ex){
                 Console.WriteLine(ex);
+                dt = new DataTable();
+                dt.Columns.Add("Mock Data", typeof(string));
+                dt.Rows.Add("Mock");
+                dt.Rows.Add("Data");
+                
             }
 
 
