@@ -7,15 +7,27 @@ using System.Collections.Generic;
 using DocumentFormat.OpenXml.Spreadsheet;
 
 
+
 namespace CSharpAutomation.Hooks
 {
     [Binding]
     public class ExcelHook
     {
         public DataTable ReadIronXL(string filePath){
-            WorkBook wb = WorkBook.Load(filePath);
-            WorkSheet ws = wb.WorkSheets.First();
-            DataTable dt = ws.ToDataTable(true);
+            DataTable dt;
+
+            try{
+                WorkBook wb = WorkBook.Load(filePath);
+                WorkSheet ws = wb.WorkSheets.First();
+                dt = ws.ToDataTable(true);
+            }catch(IndexOutOfRangeException ex){
+                dt = new DataTable();
+                dt.Columns.Add("Mock Data", typeof(string));
+                dt.Rows.Add("Mock");
+                dt.Rows.Add("Data");
+                Console.WriteLine(ex);
+            }
+
 
             return dt;
         }//End of ReadIronXL
