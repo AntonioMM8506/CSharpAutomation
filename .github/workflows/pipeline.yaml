@@ -22,7 +22,7 @@ jobs:
       run: dotnet restore
     
     - name: Build Project
-      run: dotnet build
+      run: dotnet build --configuration Release
 
     - name: Run Test API
-      run: dotnet test --filter "Category=API"
+      run: dotnet test --configuration Release --filter "Category=API"
