@@ -24,5 +24,8 @@ jobs:
     - name: Build Project
       run: dotnet build --configuration Release
 
+    - name: Create test files
+      run: touch bin/Debug/netcoreapp8/CREDENTIALS.xlsx
+
     - name: Run Test API
       run: dotnet test --configuration Release --filter Category=API
