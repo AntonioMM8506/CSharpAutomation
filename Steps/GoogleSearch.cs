@@ -26,16 +26,17 @@ namespace CSharpAutomation.Steps
         [When("I enter (.*) into the search box")]
         public void WhenIEnterTextIntoTheSearchBox(string searchText)
         {
+            //Looks for the search bar in the google page
             var searchBox = Driver.FindElement(By.Name("q"));
             searchBox.SendKeys(searchText);
         }//End of When
 
 
-
+        
         [When("I click the search button")]
         public void WhenIClickTheSearchButton()
         {
-            Thread.Sleep(2000);
+            //Clicks the Search button
             var searchButton = Driver.FindElement(By.Name("btnK"));
             searchButton.Click();
         }//End of When

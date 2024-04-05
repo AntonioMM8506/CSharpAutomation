@@ -36,6 +36,7 @@ namespace CSharpAutomation.Steps
 
         [When("user fulfills the form with the excel data")]
         public void WhenUserFulfillsWithExcelData(){
+            //read the data contained in the DataTable and then sends it to the form.
             var textArea = Driver.FindElement(By.Id("text"));
             textArea.Clear();
 

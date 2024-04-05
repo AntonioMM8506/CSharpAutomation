@@ -21,6 +21,8 @@ namespace CSharpAutomation.Steps
 
 
         [BeforeScenario]
+        //Before running the actual steps, reads the excel file in order to retrieve the data
+        //so it can be used later.
         public void BeforeYouTubeScenario(){
             ExcelHook ironxl = new ExcelHook();
             ironData = ironxl.ReadIronXL("CREDENTIALS.xlsx");
@@ -36,21 +38,21 @@ namespace CSharpAutomation.Steps
         [When("User logs into YouTube")]
         public void LogsIntoYouTube(){
             Driver.ExplicitWait(By.ClassName("yt-spec-touch-feedback-shape__stroke"));
-        
+
+            //Clicks the Sign-In button.
             Driver.FindElement(By.CssSelector(".yt-spec-button-shape-next.yt-spec-button-shape-next--outline.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading")).Click();
             Driver.ImplicitWait(50);
 
+            //Fulfilss the email input field
             Driver.ExplicitWait(By.Id("identifierId"));
             Driver.FindElement(By.Id("identifierId")).SendKeys(ironData.Rows[0][0].ToString());
 
+            //Clicks on the Next Button 
             Driver.FindElement(By.Id("identifierNext")).FindElement(By.TagName("button")).Click();
             Thread.Sleep(1000);
 
-            //Driver.ExplicitWait(By.Id("password"));
-            //Driver.FindElement(By.Id("password")).FindElement(By.TagName("input")).SendKeys(ironData.Rows[2][0].ToString());
-            //Driver.FindElement(By.Id("passwordNext")).FindElement(By.TagName("button")).Click();
-            //Driver.ImplicitWait(1000);
-
+            //In this scenario, because chromedriver its beign manipulated by a bot, then, it will
+            //not allow to complete the login, so it will looks for a warning message.
             Driver.ExplicitWait(By.Id("headingText"));
             Assert.AreEqual("No puedes acceder", Driver.FindElement(By.Id("headingText")).FindElement(By.TagName("span")).Text, $"Expected Text does not match equal");
         }//End of When
