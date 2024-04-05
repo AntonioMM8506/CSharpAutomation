@@ -18,8 +18,11 @@ jobs:
       with:
         dotnet-version: 8.x
 
-    - name: Restore
+    - name: Restore Project
       run: dotnet restore
     
-    - name: Buildº
+    - name: Build Project
       run: dotnet build
+
+    - name: Run Test API
+      run: dotnet test --filter "Category=API"
