@@ -17,11 +17,14 @@ namespace CSharpAutomation.Hooks
         public DataTable ReadIronXL(string filePath){
             DataTable dt;
 
+            //Try-Catch declaration, in the case that the given path file does not exists, it creates
+            //a mock datatable in order to be consumed in the test scenarios. Mainly used for the
+            //CICD Workflows, and avoiding to upload sensitive data to the repository.
             try{
                 WorkBook wb = WorkBook.Load(filePath);
                 WorkSheet ws = wb.WorkSheets.First();
                 dt = ws.ToDataTable(true);
-                
+
             }
             catch (FileNotFoundException ex)
             {

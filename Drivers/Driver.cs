@@ -16,15 +16,21 @@ namespace CSharpAutomation.Drivers
     {
         private static IWebDriver _driver;
         private static ChromeOptions options = new ChromeOptions();
-   
-        //ChromeOptions options = new ChromeOptions();
+
+
 
         [BeforeScenario]
         public static IWebDriver Intitialize(){
-            options.AddArgument("--headless=new");
+            //For CI/CD Workflows
+            options.AddArgument("--headless=new"); 
             _driver = new ChromeDriver(options);
-            //_driver = new ChromeDriver();
+
+            //For testing locally and starting chrome session.
+            //_driver = new ChromeDriver(); 
+
+            
             return _driver;
+
         }//End of Initialize
         public static IWebDriver Current => _driver;
 
