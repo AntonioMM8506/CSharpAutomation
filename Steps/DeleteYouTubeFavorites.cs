@@ -23,7 +23,13 @@ namespace CSharpAutomation.Steps
         [BeforeScenario]
         public void BeforeYouTubeScenario(){
             ExcelHook ironxl = new ExcelHook();
-            ironData = ironxl.ReadIronXL("CREDENTIALS.xlsx");
+            try{
+                ironData = ironxl.ReadIronXL("CREDENTIALS.xlsx");
+            }catch(IndexOutOfRangeException error){
+                ironData.Rows[0][0] = "Mock";
+                ironData.Rows[1][0] = "Data";
+            }
+            
         }
 
 
