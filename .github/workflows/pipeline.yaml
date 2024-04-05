@@ -7,13 +7,15 @@ on:
 jobs: 
   build:
     runs-on: ubutu-latest
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.x
 
     - name: Restore
       run: dotnet restore
     
     - name: Buildº
       run: dotnet build
-      
