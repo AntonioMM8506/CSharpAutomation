@@ -20,6 +20,7 @@ namespace CSharpAutomation.Hooks
                 WorkBook wb = WorkBook.Load(filePath);
                 WorkSheet ws = wb.WorkSheets.First();
                 dt = ws.ToDataTable(true);
+                
             }catch(IndexOutOfRangeException ex){
                 dt = new DataTable();
                 dt.Columns.Add("Mock Data", typeof(string));
