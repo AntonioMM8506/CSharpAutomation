@@ -25,7 +25,7 @@ jobs:
       run: dotnet build --configuration Release
 
     - name: Create test files
-      run: echo "mock content" > /bin/Debug/netcoreapp8/CREDENTIALS.xlsx
+      run: ls -a
 
     - name: Run Test API
       run: dotnet test --configuration Release --filter Category=API
