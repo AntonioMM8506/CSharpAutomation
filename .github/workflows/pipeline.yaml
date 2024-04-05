@@ -24,8 +24,14 @@ jobs:
     - name: Build Project
       run: dotnet build --configuration Release
 
-    - name: Create test files
-      run: ls -a
+    - name: See files
+      run: |
+        ls -a
+        cd bin
+        cd Debug
+
+    - name: Create mock files
+      run: echo "mock data" > bin/debug/netcoreapp8/CREDENTIALS.xlsx
 
     - name: Run Test API
       run: dotnet test --configuration Release --filter Category=API
