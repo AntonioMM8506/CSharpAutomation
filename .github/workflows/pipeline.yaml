@@ -28,7 +28,7 @@ jobs:
       run: ls -a
 
     - name: Create mock files
-      run: echo "mock data" > /bin/CREDENTIALS.xlsx
+      run: echo "mock data" > CREDENTIALS.xlsx
 
     - name: Run Test API
       run: dotnet test --configuration Release --filter Category=API
