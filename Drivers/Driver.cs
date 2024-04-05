@@ -5,7 +5,8 @@ using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System;
-using SixLabors.ImageSharp.Drawing.Processing;
+
+
 
 
 namespace CSharpAutomation.Drivers
@@ -14,11 +15,14 @@ namespace CSharpAutomation.Drivers
     public class Driver
     {
         private static IWebDriver _driver;
-        ChromeOptions options = new ChromeOptions();
+        private static ChromeOptions options = new ChromeOptions();
+   
+        //ChromeOptions options = new ChromeOptions();
 
         [BeforeScenario]
         public static IWebDriver Intitialize(){
-            _driver = new ChromeDriver("--headless");
+            options.AddArgument("--headless=new");
+            _driver = new ChromeDriver(options);
             //_driver = new ChromeDriver();
             return _driver;
         }//End of Initialize
