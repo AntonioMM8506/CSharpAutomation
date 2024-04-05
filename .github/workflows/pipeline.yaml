@@ -1,0 +1,19 @@
+name: CICD
+
+on: 
+  push:
+    branches: [main]
+
+jobs: 
+  build:
+    runs-on: ubutu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Restore
+      run: dotnet restore
+    
+    - name: Buildº
+      run: dotnet build
+      
