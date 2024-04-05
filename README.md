@@ -28,7 +28,7 @@ dotnet test
 
 If you want to run a specific test using a @Tag:
 ```
-dotnet test --filter Category=GoogleSearch
+dotnet test --filter "Category=GoogleSearch"
 ```
 
 Usually, you will not see anything printed in the console, so if you want to see what it is printed in the console and a mord detailed log. Run and dumb the results in a text files:
