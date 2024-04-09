@@ -5,8 +5,8 @@ using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System;
-
-
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace CSharpAutomation.Drivers
@@ -68,6 +68,11 @@ namespace CSharpAutomation.Drivers
             return _driver.FindElement(locator);
         }//End of FindElement
 
+        public static List<IWebElement> FindListOfElements(By locator){
+            IReadOnlyCollection<IWebElement> elements = _driver.FindElements(locator);
+            List<IWebElement> elementList = elements.ToList();
+            return elementList;
+        }//End of FindListOfElements
 
     }//End of class
 }//End of namespace
