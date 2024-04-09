@@ -116,7 +116,8 @@ namespace CSharpAutomation.Steps
             }
 
             //Send the filepath to the file search window
-            Driver.FindElement(By.ClassName("upload_txt")).SendKeys(filePath);
+            Driver.ExplicitWait(By.Id("uploadfile_0"));
+            Driver.FindElement(By.Id("uploadfile_0")).SendKeys(filePath);
             
             //Click the checkbox button
             Driver.FindElement(By.Id("terms")).Click();
@@ -126,8 +127,9 @@ namespace CSharpAutomation.Steps
 
             //Wait for the response to appear and then validates the message content.
             Driver.ExplicitWait(By.Id("res"));
+            Console.WriteLine(Driver.FindElement(By.Id("res")).Text);
             Assert.AreEqual("1 file\nhas been successfully uploaded.", Driver.FindElement(By.Id("res")).Text);
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
         }//End of When
 

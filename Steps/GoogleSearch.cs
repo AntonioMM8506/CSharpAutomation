@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using CSharpAutomation.Drivers;
+using System;
 
 
 
@@ -33,7 +34,9 @@ namespace CSharpAutomation.Steps
         public void WhenIClickTheSearchButton()
         {
             //Clicks the Search button
+            Driver.ExplicitWait(By.Name("btnK"));
             var searchButton = Driver.FindElement(By.Name("btnK"));
+            Console.WriteLine("");
             searchButton.Click();
         }//End of When
 
