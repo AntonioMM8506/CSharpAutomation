@@ -1,18 +1,11 @@
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
-using OpenQA.Selenium.Support.UI;
-using System.Threading;
-using System.Collections.Generic;
 using System;
-using CSharpAutomation.Drivers;
-using CSharpAutomation.Hooks;
-using System.Data;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net;
-using System.Text;
+
+
 
 namespace CSharpAutomation.Steps
 {
