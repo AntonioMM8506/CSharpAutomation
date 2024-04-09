@@ -5,6 +5,7 @@ using System.Threading;
 using CSharpAutomation.Drivers;
 using CSharpAutomation.Hooks;
 using System.Data;
+using System;
 
 
 
@@ -45,8 +46,12 @@ namespace CSharpAutomation.Steps
             Driver.FindElement(By.Id("identifierId")).SendKeys(ironData.Rows[0][0].ToString());
 
             //Clicks on the Next Button 
-            Driver.FindElement(By.Id("identifierNext")).FindElement(By.TagName("button")).Click();
             Thread.Sleep(1000);
+            Console.WriteLine("");
+            Driver.ExplicitWait(By.Id("identifierNext"));
+            IWebElement nextButton = Driver.FindElement(By.Id("identifierNext"));
+            nextButton.Click();
+            
 
             //In this scenario, because chromedriver its beign manipulated by a bot, then, it will
             //not allow to complete the login, so it will looks for a warning message.
