@@ -4,5 +4,5 @@ Feature: Upload a Document
     @Guru99
     Scenario: Validate user can upload a document
         Given User navigates to Demo Guru 99
-        When User navigates to "File Upload" section
-        And User uploads a document
+        When User navigates to "File Upload" Selenium section
+        Then User uploads a document

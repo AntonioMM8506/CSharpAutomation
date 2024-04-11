@@ -4,6 +4,7 @@ using TechTalk.SpecFlow;
 using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
+using System.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,13 +21,25 @@ namespace CSharpAutomation.Drivers
 
         [BeforeScenario]
         public static IWebDriver Intitialize(){
+            /*
             //For CI/CD Workflows
             options.AddArgument("--headless=new"); 
             _driver = new ChromeDriver(options);
+            */
+
 
             //For testing locally and starting chrome session.
-            //_driver = new ChromeDriver(); 
-
+            try{
+                string currentDirectory = Directory.GetCurrentDirectory();
+                string filePath = Path.Combine(currentDirectory, @"../../../Extensions/AdBlock.crx");
+                filePath = Path.GetFullPath(filePath);
+                options.AddExtension(filePath);
+                _driver = new ChromeDriver(options); 
+            }catch(Exception ex){
+                Console.WriteLine(ex);
+                _driver = new ChromeDriver();
+            }
+            
             
             return _driver;
 
@@ -68,6 +81,7 @@ namespace CSharpAutomation.Drivers
             return _driver.FindElement(locator);
         }//End of FindElement
 
+
         public static List<IWebElement> FindListOfElements(By locator){
             IReadOnlyCollection<IWebElement> elements = _driver.FindElements(locator);
             List<IWebElement> elementList = elements.ToList();
@@ -75,4 +89,5 @@ namespace CSharpAutomation.Drivers
         }//End of FindListOfElements
 
     }//End of class
+    
 }//End of namespace

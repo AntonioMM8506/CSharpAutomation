@@ -16,7 +16,6 @@ namespace CSharpAutomation.Steps
         public void GivenIAmOnTheGoogleSearchPage()
         {
             Driver.NavigateTo("https://www.google.com");
-
         } //End of Given
 
 
