@@ -21,13 +21,13 @@ namespace CSharpAutomation.Drivers
 
         [BeforeScenario]
         public static IWebDriver Intitialize(){
-            /*
+            
             //For CI/CD Workflows
             options.AddArgument("--headless=new"); 
             _driver = new ChromeDriver(options);
-            */
+            
 
-
+            /*
             //For testing locally and starting chrome session.
             try{
                 string currentDirectory = Directory.GetCurrentDirectory();
@@ -39,7 +39,7 @@ namespace CSharpAutomation.Drivers
                 Console.WriteLine(ex);
                 _driver = new ChromeDriver();
             }
-            
+            */
             
             return _driver;
 
